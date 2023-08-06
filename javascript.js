@@ -16,14 +16,14 @@ function getRandom() {
 
 function getComputerChoice() {
     let result;
-    if (getRandom <= 33) {
+    if (getRandom() <= 33) {
     result = "Rock";
-    } else if (getRandom > 33 && getRandom <= 66) {
+    } else if (getRandom() > 33 && getRandom() <= 66) {
     result = "Paper";
-    } else if (getRandom > 66 && getRandom <= 100) {
+    } else if (getRandom() > 66 && getRandom() <= 100) {
     result = "Scissors";
     }
-  return alert(result);
+  return result;
 }
   console.log(getComputerChoice());
 
