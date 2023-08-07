@@ -17,35 +17,35 @@ function getRandom() {
 function getComputerChoice() {
     let result;
     if (getRandom() <= 33) {
-    result = "Rock";
+    result = "rock";
     } else if (getRandom() > 33 && getRandom() <= 66) {
-    result = "Paper";
+    result = "paper";
     } else if (getRandom() > 66 && getRandom() <= 100) {
-    result = "Scissors";
+    result = "scissors";
     }
   return result;
 }
 
 function getPlayerSelection() {
     let choice = prompt("Please enter Rock, Paper or Scissors", "Rock");
-    return choice;
+    return choice.toLowerCase();
   }
   
   function playRound(playerSelection, computerSelection) {
      let result; 
-     if (playerSelection === "Rock" && computerSelection === "Paper") {
+     if (playerSelection === "rock" && computerSelection === "paper") {
         result = "You Lose! Paper covers Rock!";
-     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         result = "You Lose! Scissors cuts Paper!";
-     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         result = "You Lose! Rock smashes Scissors!";
-    } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
         result = "You Win! Rock smashes Scissors!";
-    } else if (playerSelection === "Paper" && computerSelection === "Rock"){
+    } else if (playerSelection === "paper" && computerSelection === "rock"){
         result = "You Win! Paper covers Rock!";
-    } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
         result = "You Win! Scissors cuts Paper!";
-    } else if (playerSelection === "Paper" && computerSelection === "Paper" || playerSelection === "Rock" && computerSelection === "Rock" ||playerSelection === "Scissors" && computerSelection === "Scissors") {
+    } else if (playerSelection === "paper" && computerSelection === "paper" || playerSelection === "rock" && computerSelection === "rock" || playerSelection === "scissors" && computerSelection === "scissors") {
         result = "Whoops! A Draw! Please try again!";
     }
     return result;
@@ -54,4 +54,71 @@ function getPlayerSelection() {
   let playerSelection = getPlayerSelection();
   let computerSelection = getComputerChoice();
 
-  console.log(playRound(playerSelection, computerSelection));
+  // 1. write a function called "game()".
+  // 2. use playRound(); inside of it 5x times. 
+  // 3. after each round, if you win than the result is +1 score to playerScore/computerScore. 
+  // Else if you loose it's +1 to computerScore, or else if you draw no one gets any points.  
+  // 4. After the fifth round, return a winner based on the number of round wins.
+  function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    let result; 
+    playRound();
+    if (playRound() === "You Win! Rock smashes Scissors!" || "You Win! Paper covers Rock!" || "You Win! Scissors cuts Paper!") {
+        result = playerScore = +1;
+    } else if (playRound() === "You Lose! Paper covers Rock!" || "You Lose! Scissors cuts Paper!" || "You Lose! Rock smashes Scissors!") {
+        result = computerScore = +1; 
+    } else if (playRound() === "Whoops! A Draw! Please try again!") {
+        result = playerScore = 0, computerScore = 0;
+    }
+    console.log(result)
+
+    playRound();
+    if (playRound() === "You Win! Rock smashes Scissors!" || "You Win! Paper covers Rock!" || "You Win! Scissors cuts Paper!") {
+        result = playerScore = +1;
+    } else if (playRound() === "You Lose! Paper covers Rock!" || "You Lose! Scissors cuts Paper!" || "You Lose! Rock smashes Scissors!") {
+        result = computerScore = +1; 
+    } else if (playRound() === "Whoops! A Draw! Please try again!") {
+        result = playerScore = 0, computerScore = 0;
+    }
+    console.log(result)
+
+    playRound();
+    if (playRound() === "You Win! Rock smashes Scissors!" || "You Win! Paper covers Rock!" || "You Win! Scissors cuts Paper!") {
+        result = playerScore = +1;
+    } else if (playRound() === "You Lose! Paper covers Rock!" || "You Lose! Scissors cuts Paper!" || "You Lose! Rock smashes Scissors!") {
+        result = computerScore = +1; 
+    } else if (playRound() === "Whoops! A Draw! Please try again!") {
+        result = playerScore = 0, computerScore = 0;
+    }
+    console.log(result)
+
+    playRound();
+    if (playRound() === "You Win! Rock smashes Scissors!" || "You Win! Paper covers Rock!" || "You Win! Scissors cuts Paper!") {
+        result = playerScore = +1;
+    } else if (playRound() === "You Lose! Paper covers Rock!" || "You Lose! Scissors cuts Paper!" || "You Lose! Rock smashes Scissors!") {
+        result = computerScore = +1; 
+    } else if (playRound() === "Whoops! A Draw! Please try again!") {
+        result = playerScore = 0, computerScore = 0;
+    }
+    console.log(result)
+
+    playRound();
+    if (playRound() === "You Win! Rock smashes Scissors!" || "You Win! Paper covers Rock!" || "You Win! Scissors cuts Paper!") {
+        result = playerScore = +1;
+    } else if (playRound() === "You Lose! Paper covers Rock!" || "You Lose! Scissors cuts Paper!" || "You Lose! Rock smashes Scissors!") {
+        result = computerScore = +1; 
+    } else if (playRound() === "Whoops! A Draw! Please try again!") {
+        result = playerScore = 0, computerScore = 0;
+    }
+    console.log(result)
+  }
+  //function finalScore() {
+    //let result;
+    //if (game.result = 3) {
+       //result = alert("Congratulations! You won the game!")
+    //} else if (game.result < 3) {
+       // result = alert("Boo, you suck. Try Again!")
+//    }
+ //   return result;
+//  }
