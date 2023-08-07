@@ -25,12 +25,33 @@ function getComputerChoice() {
     }
   return result;
 }
-  console.log(getComputerChoice());
 
-  //function playRound(playerSelection, computerSelection) {
-    // your code here!
-  //}
+function getPlayerSelection() {
+    let choice = prompt("Please enter Rock, Paper or Scissors", "Rock");
+    return choice;
+  }
+  
+  function playRound(playerSelection, computerSelection) {
+     let result; 
+     if (playerSelection === "Rock" && computerSelection === "Paper") {
+        result = "You Lose! Paper covers Rock!";
+     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+        result = "You Lose! Scissors cuts Paper!";
+     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+        result = "You Lose! Rock smashes Scissors!";
+    } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+        result = "You Win! Rock smashes Scissors!";
+    } else if (playerSelection === "Paper" && computerSelection === "Rock"){
+        result = "You Win! Paper covers Rock!";
+    } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+        result = "You Win! Scissors cuts Paper!";
+    } else if (playerSelection === "Paper" && computerSelection === "Paper" || playerSelection === "Rock" && computerSelection === "Rock" ||playerSelection === "Scissors" && computerSelection === "Scissors") {
+        result = "Whoops! A Draw! Please try again!";
+    }
+    return result;
+  }
 
-//function playerSelection() {}
+  let playerSelection = getPlayerSelection();
+  let computerSelection = getComputerChoice();
 
-//function computerSelection() {}
+  console.log(playRound(playerSelection, computerSelection));
