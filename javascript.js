@@ -74,6 +74,7 @@ function getPlayerSelection() {
     alert("The score is " + playerScore + " for the player and " + computerScore + " for the computer.");
 
     playerSelection = getPlayerSelection();
+    computerSelection = getComputerChoice();
 
     playRound(playerSelection,computerSelection);
     if (result === "You Win! Rock smashes Scissors!" || result === "You Win! Paper covers Rock!" || result === "You Win! Scissors cuts Paper!") {
@@ -84,6 +85,7 @@ function getPlayerSelection() {
     alert("The score is " + playerScore + " for the player and " + computerScore + " for the computer.");
 
     playerSelection = getPlayerSelection();
+    computerSelection = getComputerChoice();
 
     playRound(playerSelection,computerSelection);
     if (result === "You Win! Rock smashes Scissors!" || result === "You Win! Paper covers Rock!" || result === "You Win! Scissors cuts Paper!") {
@@ -94,6 +96,7 @@ function getPlayerSelection() {
     alert("The score is " + playerScore + " for the player and " + computerScore + " for the computer.");
 
     playerSelection = getPlayerSelection();
+    computerSelection = getComputerChoice();
 
     playRound(playerSelection,computerSelection);
     if (result === "You Win! Rock smashes Scissors!" || result === "You Win! Paper covers Rock!" || result === "You Win! Scissors cuts Paper!") {
@@ -104,6 +107,7 @@ function getPlayerSelection() {
     alert("The score is " + playerScore + " for the player and " + computerScore + " for the computer.");
 
     playerSelection = getPlayerSelection();
+    computerSelection = getComputerChoice();
 
     playRound(playerSelection,computerSelection);
     if (result === "You Win! Rock smashes Scissors!" || result === "You Win! Paper covers Rock!" || result === "You Win! Scissors cuts Paper!") {
@@ -112,6 +116,24 @@ function getPlayerSelection() {
         result = ++computerScore; 
     }
     alert("The score is " + playerScore + " for the player and " + computerScore + " for the computer.");
+
+    if (playerScore > computerScore) {
+        alert("You Win The Game!")
+    } else if (playerScore < computerScore) {
+        alert("Sorry, You Suck! You Lost The Game!")
+    } else if (playerScore === computerScore) {
+        alert("Weird... Tie Game. Please Play Again!")
+    }
     return result;
   }
 game()
+
+// bugs: 
+// 1. game does not tick up computerScore or playerScore. 
+// 2. computer gives the same option over and over. DONE
+
+// #2 was solved by adding computerSelection = getComputerChoice(); underneath the playerSelection = getPlayerSelection();
+// it wasn't giving a new computer choice each turn, but reusing the original. This forces the computer to choose newly each turn. 
+
+// #1 I think will be solved with a loop, which I learn next lesson. So I think
+// it's okay to leave it for right now, since we will come back and fix it later. 
