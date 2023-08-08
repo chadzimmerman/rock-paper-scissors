@@ -16,11 +16,12 @@ function getRandom() {
 
 function getComputerChoice() {
     let result;
-    if (getRandom() <= 33) {
+    let randomNumber = getRandom();
+    if (randomNumber <= 33) {
     result = "rock";
-    } else if (getRandom() > 33 && getRandom() <= 66) {
+    } else if (randomNumber > 33 && randomNumber <= 66) {
     result = "paper";
-    } else if (getRandom() > 66 && getRandom() <= 100) {
+    } else if (randomNumber > 66 && randomNumber <= 100) {
     result = "scissors";
     }
   return result;
@@ -62,32 +63,32 @@ function getPlayerSelection() {
   function game() {
     let playerScore = 0;
     let computerScore = 0;
-    let result; 
+    let result = playRound();
     playRound();
-    if (playRound() === "You Win! Rock smashes Scissors!" || "You Win! Paper covers Rock!" || "You Win! Scissors cuts Paper!") {
+    if (result === "You Win! Rock smashes Scissors!" || "You Win! Paper covers Rock!" || "You Win! Scissors cuts Paper!") {
         result = ++playerScore;
-    } else if (playRound() === "You Lose! Paper covers Rock!" || "You Lose! Scissors cuts Paper!" || "You Lose! Rock smashes Scissors!") {
+    } else if (result === "You Lose! Paper covers Rock!" || "You Lose! Scissors cuts Paper!" || "You Lose! Rock smashes Scissors!") {
         result = ++computerScore; 
-    } else if (playRound() === "Whoops! A Draw! Please try again!") {
+    } else if (result === "Whoops! A Draw! Please try again!") {
         result = playerScore, computerScore;
     }
+    console.log(playRound());
     alert("The score is " + playerScore + " for the player and " + computerScore + " for the computer.");
 
     getPlayerSelection();
 
     playRound();
-    if (playRound() === "You Win! Rock smashes Scissors!" || "You Win! Paper covers Rock!" || "You Win! Scissors cuts Paper!") {
+    if (result === "You Win! Rock smashes Scissors!" || "You Win! Paper covers Rock!" || "You Win! Scissors cuts Paper!") {
         result = ++playerScore;
-    } else if (playRound() === "You Lose! Paper covers Rock!" || "You Lose! Scissors cuts Paper!" || "You Lose! Rock smashes Scissors!") {
+    } else if (result === "You Lose! Paper covers Rock!" || "You Lose! Scissors cuts Paper!" || "You Lose! Rock smashes Scissors!") {
         result = ++computerScore; 
-    } else if (playRound() === "Whoops! A Draw! Please try again!") {
+    } else if (result === "Whoops! A Draw! Please try again!") {
         result = playerScore, computerScore;
     }
     alert("The score is " + playerScore + " for the player and " + computerScore + " for the computer.");
-
-    return result;
   }
-  console.log(game())
+  game();
+
 
   //function finalScore() {
     //let result;
